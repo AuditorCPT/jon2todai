@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Shield - Centro de Entrenamiento</title>
+  <style>
+    :root {
+      --bg: #0f172a; --card-bg: #1e293b; --text: #f8fafc;
+      --muted: #94a3b8; --accent: #3b82f6;
+    }
+    * { box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg); color: var(--text);
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .header { text-align: center; margin-bottom: 40px; }
+    .header h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fff; }
+    .header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; }
+    
+    .grid-container {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px; max-width: 1000px; width: 100%;
+    }
+    .card {
+      background-color: var(--card-bg); border-radius: 12px; padding: 30px 20px;
+      text-align: center; cursor: pointer; border: 1px solid #334155;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none; color: var(--text); display: flex; flex-direction: column; align-items: center;
+      position: relative;
+    }
+    .card:hover:not(.disabled) {
+      transform: translateY(-5px); border-color: var(--accent);
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+    }
+    .card h3 { font-size: 1.2rem; margin-bottom: 10px; margin-top: 10px; }
+    .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.4; }
+
+    .card.disabled { opacity: 0.5; cursor: not-allowed; border-color: #334155; }
+    .badge-coming {
+      position: absolute; top: 10px; right: 10px; background: #475569; color: #f8fafc;
+      font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Social Shield</h1>
+    <p>Plataforma de Simulación de Ingeniería Social. Selecciona el vector de ataque que deseas evaluar.</p>
+  </div>
+
+  <div class="grid-container">
+    <a href="simulador.html?theme=email" class="card">
+      <h3>Correo Genérico</h3>
+      <p>Simulación de phishing clásico, spear-phishing y alertas administrativas.</p>
+    </a>
+
+    <a href="simulador.html?theme=system" class="card">
+      <h3>Alertas de Seguridad (Microsoft)</h3>
+      <p>Notificaciones de restablecimiento de contraseña y MFA de Microsoft.</p>
+    </a>
+
+    <a href="simulador.html?theme=billing" class="card">
+      <h3>Suscripciones y Facturación</h3>
+      <p>Falsas facturas de AWS, Netflix y cargos de Anthropic (Claude).</p>
+    </a>
+
+    <a href="simulador.html?theme=social" class="card">
+      <h3>Redes Sociales</h3>
+      <p>Mensajes directos y notificaciones de plataformas sociales (X/Twitter, LinkedIn).</p>
+    </a>
+    
+    <div class="card disabled">
+      <span class="badge-coming">Próximamente</span>
+      <h3>SMS / WhatsApp</h3>
+      <p>Mensajes de texto con enlaces maliciosos, suplantación de paquetería y fraudes bancarios.</p>
+    </div>
+  </div>
+</body>
+</html>
